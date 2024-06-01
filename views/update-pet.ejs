@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Update Pet</title>
+</head>
+
+<body>
+    <h1>Update Pet</h1>
+    <form action="/pets/update/<%= pet._id %>" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= pet.name %>" required>
+        <br>
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type" value="<%= pet.type %>" required>
+        <br>
+        <label for="breed">Breed:</label>
+        <input type="text" id="breed" name="breed" value="<%= pet.breed %>" required>
+        <br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" value="<%= pet.age %>" required>
+        <br>
+        <label for="ownerID">Owner ID:</label>
+        <input type="text" id="ownerID" name="ownerID" value="<%= pet.ownerID %>" required>
+        <br>
+        <button type="submit">Update Pet</button>
+    </form>
+</body>
+
+</html>

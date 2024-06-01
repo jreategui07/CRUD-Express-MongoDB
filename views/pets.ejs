@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pets</title>
+</head>
+
+<body>
+    <h1>Pets</h1>
+    <a href="/pets/add-uno">Add Pet</a>
+    <ul>
+        <% pets.forEach(pet=> { %>
+            <li>
+                <%= pet.name %> - <%= pet.type %> - <%= pet.breed %> - <%= pet.age %> years old
+                                <a href="/pets/update/<%= pet._id %>">Update</a>
+                                <form action="/pets/delete/<%= pet._id %>" method="POST" style="display:inline;">
+                                    <button type="submit">Delete</button>
+                                </form>
+            </li>
+            <% }) %>
+    </ul>
+</body>
+
+</html>

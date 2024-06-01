@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Clients</title>
+</head>
+
+<body>
+    <h1>Clients</h1>
+    <a href="/clients/add">Add Client</a>
+    <ul>
+        <% clients.forEach(client=> { %>
+            <li>
+                <%= client.name %> - <%= client.contact %>
+                        <a href="/clients/update/<%= client._id %>">Update</a>
+                        <form action="/clients/delete/<%= client._id %>" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+            </li>
+            <% }) %>
+    </ul>
+</body>
+
+</html>
