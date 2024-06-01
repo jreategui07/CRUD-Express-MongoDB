@@ -30,11 +30,11 @@ app.get('/pets', async (req, res) => {
   res.render('pets', { pets });
 });
 
-app.get('/pets/add-uno', (req, res) => {
+app.get('/pets/add', (req, res) => {
   res.render('add-pet');
 });
 
-app.post('/pets/add-dos', async (req, res) => {
+app.post('/pets/add', async (req, res) => {
   const pet = new Pet(req.body);
   await pet.save();
   res.redirect('/pets');
