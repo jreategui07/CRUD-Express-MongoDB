@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Pet Walking Service</title>
+  <title>PawsitiveCare</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
-
 <body>
-    <h1>Welcome to the Pet Walking Service</h1>
-    <a href="/pets">View Pets</a>
-    <a href="/dogwalkers">View Dog Walkers</a>
-    <a href="/clients">View Clients</a>
-</body>
+  <%- include('partials/header') %>
+  <main>
+    <h1>Welcome to PawsitiveCare</h1>
+    <h2>Your trusted pet walking service.</h2>
+    <button onclick="location.href='/appointments/add'" class="button">Book an Appointment</button>
+    <button onclick="location.href='/appointments'" class="button">View Appointment Calendar</button>
+    <div class="dog-grid">
+      <% for(let i = 0; i < 9; i++) { %>
+        <div class="dog-image">
+          <img src="<%= dogImages[i] %>" alt="Dog Image">
+        </div>
+      <% } %>
+    </div>
+    <div class="appointment-links">
+      <a href="/appointments/add" class="button">Set an Appointment</a>
+      <a href="/appointments" class="button">View All Appointments</a>
+    </div>
+  </main>
+  <%- include('partials/footer') %>
+  <script>
+    const dogImages = <%= JSON.stringify(dogImages) %>;
+    const dogGrid = document.querySelector('.dog-grid');
 
+    function updateDogImages() {
+      const shuffledImages = dogImages.sort(() => 0.5 - Math.random());
+      const imageElements = dogGrid.querySelectorAll('img');
+      imageElements.forEach((img, index) => {
+        img.src = shuffledImages[index];
+      });
+    }
+    setInterval(updateDogImages, 1000);
+  </script>
+</body>
 </html>
