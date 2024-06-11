@@ -1,4 +1,4 @@
-const SETTINGS = require('./secrets.js');
+const SETTINGS = require('./secrets');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
