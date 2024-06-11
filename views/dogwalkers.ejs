@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dog Walkers</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <h1>Dog Walkers</h1>
+    <a href="/dogwalkers/add">Add Dog Walker</a>
+    <ul>
+      <% dogWalkers.forEach(dogWalker => { %>
+        <li>
+          <%= dogWalker.name %> - Rating: <%= dogWalker.rating %> - Available: <%= dogWalker.available ? 'Yes' : 'No' %>
+          <a href="/dogwalkers/update/<%= dogWalker._id %>">Update</a>
+          <form action="/dogwalkers/delete/<%= dogWalker._id %>" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  </main>
+  <%- include('partials/footer') %>
+</body>
+</html>
