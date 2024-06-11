@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Add Pet</title>
+  <title>Add Pet</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
-
 <body>
+  <%- include('partials/header') %>
+  <main>
     <h1>Add Pet</h1>
     <form action="/pets/add" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <br>
-        <label for="type">Type:</label>
-        <input type="text" id="type" name="type" required>
-        <br>
-        <label for="breed">Breed:</label>
-        <input type="text" id="breed" name="breed" required>
-        <br>
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required>
-        <br>
-        <label for="ownerID">Owner ID:</label>
-        <input type="text" id="ownerID" name="ownerID" required>
-        <br>
-        <button type="submit">Add Pet</button>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <br>
+      <label for="type">Type:</label>
+      <input type="text" id="type" name="type" required>
+      <br>
+      <label for="breed">Breed:</label>
+      <input type="text" id="breed" name="breed" required>
+      <br>
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required>
+      <br>
+      <label for="ownerID">Owner ID:</label>
+      <select id="ownerID" name="ownerID" required>
+        <% clients.forEach(client => { %>
+          <option value="<%= client._id %>"><%= client.name %> (<%= client._id %>)</option>
+        <% }) %>
+      </select>
+      <br>
+      <button type="submit">Add Pet</button>
     </form>
+  </main>
+  <%- include('partials/footer') %>
 </body>
-
 </html>
