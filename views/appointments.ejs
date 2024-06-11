@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Appointments</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <h1>Appointments</h1>
+    <a href="/appointments/add" class="button">Add Appointment</a>
+    <table>
+      <thead>
+        <tr>
+          <th>Pet</th>
+          <th>Walker</th>
+          <th>Date and Time</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% appointments.forEach(appointment => { %>
+          <tr>
+            <td><%= appointment.petID.name %></td>
+            <td><%= appointment.walkerID.name %></td>
+            <td><%= new Date(appointment.dateTime).toLocaleString() %></td>
+            <td>
+              <a href="/appointments/update/<%= appointment._id %>" class="button">Update</a>
+              <form action="/appointments/delete/<%= appointment._id %>" method="POST" style="display:inline;">
+                <button type="submit" class="button button-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </main>
+  <%- include('partials/footer') %>
+</body>
+</html>
