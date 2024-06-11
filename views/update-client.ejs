@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Update Client</title>
+  <title>Update Client</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
-
 <body>
+  <%- include('partials/header') %>
+  <main>
     <h1>Update Client</h1>
     <form action="/clients/update/<%= client._id %>" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="<%= client.name %>" required>
-        <br>
-        <label for="contact">Contact:</label>
-        <input type="text" id="contact" name="contact" value="<%= client.contact %>" required>
-        <br>
-        <button type="submit">Update Client</button>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="<%= client.name %>" required>
+      <br>
+      <label for="contact">Contact:</label>
+      <input type="text" id="contact" name="contact" value="<%= client.contact %>" required>
+      <br>
+      <button type="submit">Update Client</button>
     </form>
+  </main>
+  <%- include('partials/footer') %>
 </body>
-
 </html>

@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Clients</title>
+  <title>Clients</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
-
 <body>
+  <%- include('partials/header') %>
+  <main>
     <h1>Clients</h1>
     <a href="/clients/add">Add Client</a>
     <ul>
-        <% clients.forEach(client=> { %>
-            <li>
-                <%= client.name %> - <%= client.contact %>
-                        <a href="/clients/update/<%= client._id %>">Update</a>
-                        <form action="/clients/delete/<%= client._id %>" method="POST" style="display:inline;">
-                            <button type="submit">Delete</button>
-                        </form>
-            </li>
-            <% }) %>
+      <% clients.forEach(client => { %>
+        <li>
+          <%= client.name %> - <%= client.contact %>
+          <a href="/clients/update/<%= client._id %>">Update</a>
+          <form action="/clients/delete/<%= client._id %>" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+      <% }) %>
     </ul>
+  </main>
+  <%- include('partials/footer') %>
 </body>
-
 </html>
